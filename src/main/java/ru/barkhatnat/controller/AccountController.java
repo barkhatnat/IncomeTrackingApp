@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.barkhatnat.controller.payload.NewAccountPayload;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
 
@@ -24,17 +25,17 @@ public class AccountController {
         model.addAttribute("account", accountService.getAccount(id));
         return "account";
     }
-    @RequestMapping("/create")
-    public String createAccount(Model model){
-        Account account = new Account();
-        model.addAttribute("account", account);
+    @GetMapping("/create")
+    public String createAccount(){
+//        Account account = new Account();
+//        model.addAttribute("account", account);
         return "account-creation";
     }
-//    @PostMapping("/save")
-//    public String saveAccount(@ModelAttribute("account") Account account){
-//        accountService.saveAccount(account);
-//        return "redirect:/accounts/list";
-//    }
+    @PostMapping("/save")
+    public String saveAccount(NewAccountPayload payload){
+        accountService.saveAccount(payload.title(), payload.balance());
+        return "redirect:/accounts/list";
+    }
 //    @PostMapping("/save")
 //    public String saveAccount((@RequestParam Integer id, @RequestParam String title, @RequestParam BigDecimal balance){
 //        Account account = new Account();

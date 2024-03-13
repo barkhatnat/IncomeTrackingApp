@@ -5,12 +5,15 @@
 </head>
 <body>
 <h2>Account Info</h2>
-<form th:action="@{/accounts/save}" th:object="${account}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    Title <input type="text" th:field="*{title}" />
-    <br>
-    Balance <input type="text" th:field="*{balance}" />
-    <br>
+<form data-th-action="@{/accounts/save}" method="post">
+    <label>
+        Название счета <br>
+        <input type="text" name = "title">
+    </label><br>
+    <label>
+        Сумма <br>
+        <input type="text" name = "balance">
+    </label>
     <button type="submit">OK</button>
 </form>
 </body>

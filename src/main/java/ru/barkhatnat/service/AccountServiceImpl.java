@@ -6,13 +6,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.dao.AccountDao;
 import ru.barkhatnat.entity.Account;
+import ru.barkhatnat.entity.User;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService{
     private final AccountDao accountDao;
+    private final UserServiceImpl userService; //TODO УДАЛИТЬ
     @Override
     @Transactional
     public List<Account> getAllAccounts() {
@@ -21,8 +26,10 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     @Transactional
-    public void saveAccount(Account account) {
-        accountDao.saveAccount(account);
+    public void saveAccount(String title, BigDecimal balance) {
+        User user = userService.getUser(1);
+        Timestamp createdAt = Timestamp.from(Instant.now());
+        accountDao.saveAccount(new Account(null, title, balance, user, createdAt));
     }
 
     @Override

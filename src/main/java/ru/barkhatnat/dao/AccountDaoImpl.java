@@ -27,7 +27,6 @@ public class AccountDaoImpl implements AccountDao{
     @Override
     public void saveAccount(Account account) {
         Session session = sessionFactory.getCurrentSession();
-        account.setCreatedAt(Timestamp.from(Instant.now()));
         session.saveOrUpdate(account);
     }
 
