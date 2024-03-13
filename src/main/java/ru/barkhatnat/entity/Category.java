@@ -18,7 +18,7 @@ public class Category {
     private Integer id;
     @Column
     private String title;
-    @Column
+    @Column(name = "category_type")
     private Boolean categoryType;
     @OneToMany(mappedBy = "category")
     List<Operation> operations;

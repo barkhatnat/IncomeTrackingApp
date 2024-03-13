@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.entity.User;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 @Repository
@@ -24,11 +26,16 @@ public class AccountDaoImpl implements AccountDao{
 
     @Override
     public void saveAccount(Account account) {
+        Session session = sessionFactory.getCurrentSession();
+        account.setCreatedAt(Timestamp.from(Instant.now()));
+        session.saveOrUpdate(account);
     }
 
     @Override
     public Account getAccount(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Account account = session.get(Account.class, id);
+        return account;
     }
 
     @Override

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Account {
     @Column
     private String title;
     @Column
-    private String balance;
+    private BigDecimal balance;
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
@@ -27,7 +28,7 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Operation> operations;
 
-    public Account(Integer id, String title, String balance, User user, Timestamp createdAt) {
+    public Account(Integer id, String title, BigDecimal balance, User user, Timestamp createdAt) {
         this.id = id;
         this.title = title;
         this.balance = balance;

@@ -29,6 +29,7 @@ public class Operation {
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
     @JoinColumn(name ="account_id")
     private Account account;
+    @Column(name = "created_at")
     private Timestamp createdAt;
 
     public Operation(BigDecimal amount, Timestamp datePurchase, Boolean operationType, String note, Timestamp createdAt) {

@@ -9,16 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add accounts (no spring boot)">
+    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add spring boot">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/MySpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/MySpringBootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/account-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/all-users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/all-users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/user-info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/user-info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-2.0.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +32,8 @@
       <list>
         <option value="Interface" />
         <option value="Jsp File" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -73,6 +75,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -320,7 +323,8 @@
       <workItem from="1709817530955" duration="238000" />
       <workItem from="1709817809298" duration="2476000" />
       <workItem from="1710148806214" duration="3782000" />
-      <workItem from="1710329086612" duration="2886000" />
+      <workItem from="1710329086612" duration="14967000" />
+      <workItem from="1710366936343" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add java configuration">
       <option name="closed" value="true" />
@@ -338,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710330977801</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add spring boot">
+      <option name="closed" value="true" />
+      <created>1710332291574</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710332291574</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +402,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add java configuration" />
     <MESSAGE value="feat: add accounts (no spring boot)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add accounts (no spring boot)" />
+    <MESSAGE value="feat: add spring boot" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add spring boot" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
