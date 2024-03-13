@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Data
@@ -26,8 +27,8 @@ public class User {
     @CreationTimestamp
     @Column(name = "created_at")
     private Timestamp createdAt;
-//    @OneToMany (mappedBy = "user")
-//    private List<Account> accounts;
+    @OneToMany (mappedBy = "user")
+    private List<Account> accounts;
 
     public User(String username, String password, String email, Timestamp createdAt) {
         this.username = username;

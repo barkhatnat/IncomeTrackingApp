@@ -9,9 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add java configuration">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/MySpringBootApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/account-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/MyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/MyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/test1.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +41,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,11 +70,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mvideo/Documents/JavaProjects/FunnyMoney/src/main/webapp/WEB-INF/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mvideo/Documents/JavaProjects/FunnyMoney/src/main/java/ru/barkhatnat/entity&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,7 +99,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\java\ru\barkhatnat\entity" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp\WEB-INF\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp" />
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.11">
@@ -90,12 +121,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MySpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="FunnyMoney" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.barkhatnat.MySpringBootApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 10.1.11" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.11" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="FunnyMoney:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/FunnyMoney_war_exploded" />
+            <option name="CONTEXT_PATH" value="/FunnyMoney" />
           </settings>
         </artifact>
       </deployment>
@@ -266,6 +304,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.test1" />
+      <item itemvalue="Spring Boot.MySpringBootApplication" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.11" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.78" />
     </list>
@@ -289,11 +328,36 @@
       <workItem from="1708962071231" duration="937000" />
       <workItem from="1708984255629" duration="751000" />
       <workItem from="1709109575432" duration="7407000" />
+      <workItem from="1709817530955" duration="238000" />
+      <workItem from="1709817809298" duration="2476000" />
+      <workItem from="1710148806214" duration="3782000" />
+      <workItem from="1710329086612" duration="1793000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: add java configuration">
+      <option name="closed" value="true" />
+      <created>1709746540329</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709746540329</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:war" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
@@ -325,5 +389,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add java configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add java configuration" />
   </component>
 </project>
