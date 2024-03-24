@@ -12,6 +12,7 @@
         <th>№</th>
         <th>Title</th>
         <th>Balance</th>
+        <th>Edit link</th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +23,10 @@
                data-th-text = "${account.title}"> </a>
         </td>
         <td data-th-text = "${account.balance}"></td>
+        <td>
+            <a data-th-href = "@{/accounts/{accountId}/edit(accountId = ${account.id})}"
+               data-th-text = "Change"> </a>
+        </td>
     </tr>
     </tbody>
 </table>

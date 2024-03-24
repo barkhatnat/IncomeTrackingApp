@@ -1,7 +1,6 @@
 package ru.barkhatnat.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.dao.AccountDao;
@@ -30,6 +29,13 @@ public class AccountServiceImpl implements AccountService{
         User user = userService.getUser(1);
         Timestamp createdAt = Timestamp.from(Instant.now());
         accountDao.saveAccount(new Account(null, title, balance, user, createdAt));
+    }
+    @Override
+    @Transactional
+    public void saveAccount(Integer id, String title, BigDecimal balance) {
+        User user = userService.getUser(1);
+        Timestamp createdAt = Timestamp.from(Instant.now());
+        accountDao.updateAccount(new Account(id, title, balance, user, createdAt));
     }
 
     @Override

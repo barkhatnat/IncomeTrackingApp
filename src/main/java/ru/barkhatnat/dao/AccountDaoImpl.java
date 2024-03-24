@@ -3,13 +3,11 @@ package ru.barkhatnat.dao;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.barkhatnat.entity.Account;
-import ru.barkhatnat.entity.User;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.List;
 
 @Repository
@@ -27,7 +25,12 @@ public class AccountDaoImpl implements AccountDao{
     @Override
     public void saveAccount(Account account) {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(account);
+        session.save(account);
+    }
+    @Override
+    public void updateAccount(Account account) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(account);
     }
 
     @Override
@@ -39,6 +42,9 @@ public class AccountDaoImpl implements AccountDao{
 
     @Override
     public void deleteAccount(int id) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Query<Account> query = session.createQuery("delete from Account where id =:accountId");
+        query.setParameter("accountId", id);
+        query.executeUpdate();
     }
 }

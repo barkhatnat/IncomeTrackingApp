@@ -5,44 +5,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.barkhatnat.controller.payload.NewAccountPayload;
+import ru.barkhatnat.controller.payload.UpdateAccountPayload;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
 
-import java.math.BigDecimal;
-
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/accounts")
+@RequestMapping("accounts/{accountId:\\d+}")
 public class AccountController {
     private final AccountService accountService;
-    @GetMapping("/list")
-    public String getAccountsList(Model model){
-        model.addAttribute("accounts", accountService.getAllAccounts());
-        return "account-list";
+    @ModelAttribute("account")
+    public Account account(@PathVariable("accountId") int accountId) {
+        return accountService.getAccount(accountId);
     }
-    @GetMapping("/{id}")
-    public String getAccountsList(@PathVariable int id, Model model){
-        model.addAttribute("account", accountService.getAccount(id));
-        return "account";
+    @GetMapping
+    public String getAccountInfo(){
+        return "account-info";
     }
-    @GetMapping("/create")
-    public String createAccount(){
-//        Account account = new Account();
-//        model.addAttribute("account", account);
-        return "account-creation";
+    @GetMapping("/edit")
+    public String editAccountInfo(){
+        return "account-edit";
     }
     @PostMapping("/save")
-    public String saveAccount(NewAccountPayload payload){
-        accountService.saveAccount(payload.title(), payload.balance());
+    public String saveAccount(@ModelAttribute("account") Account account, UpdateAccountPayload payload){
+        accountService.saveAccount(account.getId(), payload.title(), payload.balance());
+//        return "redirect:/accounts/%d".formatted(account.getId());
         return "redirect:/accounts/list";
     }
-//    @PostMapping("/save")
-//    public String saveAccount((@RequestParam Integer id, @RequestParam String title, @RequestParam BigDecimal balance){
-//        Account account = new Account();
-//        account.setId(id);
-//        account.setTitle(title);
-//        account.setBalance(balance);
-//        accountService.saveAccount(account);
-//        return "redirect:/accounts/list";
-//    }
 }
