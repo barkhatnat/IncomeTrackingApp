@@ -21,14 +21,14 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public Iterable<Account> getAllAccounts() {
+    public Iterable<Account> findAllAccounts() {
         return accountRepository.findAll();
     }
 
     @Override
     @Transactional
     public Account createAccount(String title, BigDecimal balance) {
-        User user = userService.getUser(1);
+        User user = userService.findUser(1).orElse(null); //TODO нормально сделать соедианение юзера и аккаунтов
         Timestamp createdAt = Timestamp.from(Instant.now());
         return this.accountRepository.save(new Account(null, title, balance, user, createdAt));
     }

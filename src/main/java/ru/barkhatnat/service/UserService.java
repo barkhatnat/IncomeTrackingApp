@@ -2,13 +2,16 @@ package ru.barkhatnat.service;
 
 import ru.barkhatnat.entity.User;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
-    public List<User> getAllUsers();
-    public void saveUser(User user);
-    public User getUser(int id);
-    public void deleteUser(int id);
+    Iterable<User> findAllUsers();
 
+    User createUser(String username, String password, String email);
 
+    Optional<User> findUser(int id);
+
+    void updateUser(Integer id, String username, String password, String email);
+
+    void deleteUser(int id);
 }
