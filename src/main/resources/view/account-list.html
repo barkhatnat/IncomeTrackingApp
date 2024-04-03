@@ -25,12 +25,14 @@
         </td>
         <td data-th-text = "${account.balance}"></td>
         <td>
-            <a data-th-href = "@{/accounts/{accountId}/edit(accountId = ${account.id})}"
-               data-th-text = "Change"> </a>
+            <form th:action="@{/accounts/{accountId}/edit(accountId=${account.id})}" method="get">
+                <button type="submit">Change</button>
+            </form>
         </td>
         <td>
-            <a data-th-href = "@{/accounts/{accountId}/delete(accountId = ${account.id})}"
-               data-th-text = "Delete"> </a>
+            <form th:action="@{/accounts/{accountId}/delete(accountId=${account.id})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>
