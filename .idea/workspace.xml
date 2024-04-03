@@ -9,21 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add account creation">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/account-edit.html" afterDir="false" />
+    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add account updating (no hibernate realisation)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/exсeption_handling/AccountGlobalExceptionHandling.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/view/errors/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/dao/AccountDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,6 +330,9 @@
       <workItem from="1710680316992" duration="15000" />
       <workItem from="1710961912052" duration="607000" />
       <workItem from="1711185362038" duration="610000" />
+      <workItem from="1711314984790" duration="1557000" />
+      <workItem from="1711393697734" duration="285000" />
+      <workItem from="1712163743897" duration="6352000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add java configuration">
       <option name="closed" value="true" />
@@ -373,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710370454549</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: add account updating (no hibernate realisation)">
+      <option name="closed" value="true" />
+      <created>1711316826488</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711316826488</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +437,8 @@
     <MESSAGE value="feat: add spring boot" />
     <MESSAGE value="feat: add functions" />
     <MESSAGE value="feat: add account creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add account creation" />
+    <MESSAGE value="feat: add account updating (no hibernate realisation)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add account updating (no hibernate realisation)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

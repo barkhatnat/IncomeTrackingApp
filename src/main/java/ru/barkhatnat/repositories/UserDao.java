@@ -1,4 +1,4 @@
-package ru.barkhatnat.dao;
+package ru.barkhatnat.repositories;
 
 import ru.barkhatnat.entity.User;
 

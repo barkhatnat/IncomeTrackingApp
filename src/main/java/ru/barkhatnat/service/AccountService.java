@@ -1,15 +1,14 @@
 package ru.barkhatnat.service;
 
-import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.entity.Account;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Optional;
 
 public interface AccountService {
-    public List<Account> getAllAccounts();
-    public void saveAccount(String title, BigDecimal balance);
-    public void saveAccount(Integer id, String title, BigDecimal balance);
-    public Account getAccount(int id);
-    public void deleteAccount(int id);
+    Iterable<Account> getAllAccounts();
+    Account createAccount(String title, BigDecimal balance);
+    Optional<Account> findAccount(int id);
+    void updateAccount(Integer id, String title, BigDecimal balance);
+    void deleteAccount(int id);
 }

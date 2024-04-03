@@ -3,7 +3,7 @@ package ru.barkhatnat.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.barkhatnat.dao.UserDao;
+import ru.barkhatnat.repositories.UserDao;
 import ru.barkhatnat.entity.User;
 
 import java.util.List;

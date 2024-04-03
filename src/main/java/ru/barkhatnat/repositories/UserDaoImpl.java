@@ -1,13 +1,10 @@
-package ru.barkhatnat.dao;
+package ru.barkhatnat.repositories;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.hibernate.query.QueryProducer;
-import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.entity.User;
 
 import java.sql.Timestamp;
