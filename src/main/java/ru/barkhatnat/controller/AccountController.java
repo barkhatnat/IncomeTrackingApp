@@ -1,6 +1,7 @@
 package ru.barkhatnat.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.barkhatnat.controller.payload.UpdateAccountPayload;
@@ -19,7 +20,7 @@ public class AccountController {
     public Account account(@PathVariable("accountId") int accountId) {
         Account account = accountService.findAccount(accountId).orElse(null);
         if (account == null) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("accounts.errors.account.not_found");
         }
         return account;
     }
