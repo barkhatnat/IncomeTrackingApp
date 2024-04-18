@@ -1,9 +1,14 @@
 package ru.barkhatnat.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import ru.barkhatnat.controller.payload.NewAccountPayload;
 import ru.barkhatnat.controller.payload.UpdateAccountPayload;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
@@ -35,11 +40,17 @@ public class AccountController {
         return "account-edit";
     }
 
-    @PostMapping("/save")
-    public String saveAccount(@ModelAttribute("account") Account account, UpdateAccountPayload payload) {
-        accountService.updateAccount(account.getId(), payload.title(), payload.balance());
+    @PostMapping("/edit")
+    public String saveAccount(@ModelAttribute("account") Account account, @Valid UpdateAccountPayload payload, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("payload", payload);
+            model.addAttribute("errors", bindingResult.getAllErrors().stream().map(ObjectError::getDefaultMessage).toList());
+            return "account-edit";
+        } else {
+            accountService.updateAccount(account.getId(), payload.title(), payload.balance());
 //        return "redirect:/accounts/%d".formatted(account.getId());
-        return "redirect:/accounts/list";
+            return "redirect:/accounts/list";
+        }
     }
 
     @PostMapping("/delete")
