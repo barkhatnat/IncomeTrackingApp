@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:data-th-each="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Add New Account</title>
+</head>
+<body>
+<h2>Add New Account</h2>
+<div data-th-if="${errors}">
+    <h2>Please correct the following errors:</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
+<form data-th-action="@{/accounts/create}" method="post">
+    <label>
+        Account title <br>
+        <input type="text" name="title" data-th-value="${payload?.title}">
+    </label><br>
+    <label>
+        Balance <br>
+        <input type="text" name="balance" data-th-value="${payload?.balance}">
+    </label>
+    <button type="submit">OK</button>
+</form>
+<button type="button">
+    <a href="/accounts">Return to Accounts</a>
+</button>
+</body>
+</html>

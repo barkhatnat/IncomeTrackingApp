@@ -1,0 +1,6 @@
+application:
+  services:
+    accounts-list:
+        uri: http://localhost:7128
+server:
+  port: 7127

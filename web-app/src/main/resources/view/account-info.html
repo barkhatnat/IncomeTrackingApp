@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${account?.title}">Default Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="operation : ${account.operations}">
+        <td data-th-text = "${operation.id}"></td>
+        <td> <a data-th-href = "@{/accounts/{accountId}/operation/{operationId}(accountId = ${account.id}, operationId = ${operation.id})}"
+                data-th-text = "${operation.amount}"> </a>
+        </td>
+        <td data-th-text = "${operation.datePurchase}"></td>
+    </tr>
+    </tbody>
+</table>
+<button type = "button">
+    <a href = "/accounts">Return to Accounts</a>
+</button>
+</body>
+</html>

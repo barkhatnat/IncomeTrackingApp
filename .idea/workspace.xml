@@ -9,17 +9,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add NoSuchElementException handling">
+    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add account validation">
+      <change afterPath="$PROJECT_DIR$/accounts-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountsRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/WebApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/RestClientAccountsRestClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/ClientBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/service/AccountRestClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/test/java/ru/barkhatnat/accountsservice/AccountsServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/account-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/MySpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/MySpringBootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/MyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/exсeption_handling/AccountGlobalExceptionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/exсeption_handling/BadRequestControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/repositories/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/repositories/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/all-users.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/errors/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/errors/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/user-info.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +75,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Jsp File" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,6 +92,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -57,39 +106,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mvideo/Documents/JavaProjects/FunnyMoney/src/main/java/ru/barkhatnat/entity&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9c088668c57b27bf1db083c1de6d958b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Mvideo/Documents/JavaProjects/IncomeTrackingApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "fileTemplates",
+    "spring.configuration.checksum": "a774bc2d9f86ad72cb5c510df382c164",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\accounts-service\src\main\resources" />
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\web-app" />
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\accounts-service" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\java\ru\barkhatnat\entity" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp\WEB-INF\lib" />
     </key>
@@ -99,23 +152,30 @@
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MySpringBootApplication">
-    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.barkhatnat.test1" />
-      <module name="FunnyMoney" />
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="jack" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.WebApp">
+    <configuration name="MySpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="standalone" />
+      <module name="accounts-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.barkhatnat.MySpringBootApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="standalone" />
+      <module name="web-app" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.barkhatnat.WebApp" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ru.barkhatnat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="FunnyMoney" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.barkhatnat.MySpringBootApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -295,14 +355,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.test1" />
       <item itemvalue="Spring Boot.MySpringBootApplication" />
+      <item itemvalue="Spring Boot.WebApp" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.11" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.78" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test1" />
+        <item itemvalue="Spring Boot.WebApp" />
       </list>
     </recent_temporary>
   </component>
@@ -336,7 +396,14 @@
       <workItem from="1712250616336" duration="1827000" />
       <workItem from="1712307566014" duration="514000" />
       <workItem from="1712940350574" duration="17000" />
-      <workItem from="1713456846252" duration="1364000" />
+      <workItem from="1713456846252" duration="9367000" />
+      <workItem from="1713537455945" duration="20000" />
+      <workItem from="1713543654732" duration="4123000" />
+      <workItem from="1713548878651" duration="92000" />
+      <workItem from="1713608864143" duration="566000" />
+      <workItem from="1714831697033" duration="9846000" />
+      <workItem from="1714897361750" duration="15318000" />
+      <workItem from="1714917471026" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add java configuration">
       <option name="closed" value="true" />
@@ -418,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712177490358</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat: add account validation">
+      <option name="closed" value="true" />
+      <created>1713458426646</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713458426646</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +553,8 @@
     <MESSAGE value="feat: user repository changed to CrudRepository" />
     <MESSAGE value="feat: links to buttons" />
     <MESSAGE value="feat: add NoSuchElementException handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add NoSuchElementException handling" />
+    <MESSAGE value="feat: add account validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add account validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,6 +562,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="4" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.thymeleaf.exceptions.TemplateInputException" package="org.thymeleaf.exceptions" />
+          <option name="timeStamp" value="12" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

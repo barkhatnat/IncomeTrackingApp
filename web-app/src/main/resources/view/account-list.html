@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+</head>
+<body>
+<h1>Your accounts</h1>
+<table>
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Title</th>
+        <th>Balance</th>
+        <th>Edit link</th>
+        <th>Delete link</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="account, iter : ${accounts}">
+        <td data-th-text = "${iter.index + 1}"></td>
+        <td>
+            <a data-th-href = "@{/accounts/{accountId}(accountId = ${account.id})}"
+               data-th-text = "${account.title}"> </a>
+        </td>
+        <td data-th-text = "${account.balance}"></td>
+        <td>
+            <form th:action="@{/accounts/{accountId}/edit(accountId=${account.id})}" method="get">
+                <button type="submit">Edit Account</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/accounts/{accountId}/delete(accountId=${account.id})}" method="post">
+                <button type="submit">Delete Account</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button type = "button">
+    <a href = "/accounts/create">Add New Account</a>
+</button>
+</body>
+</html>

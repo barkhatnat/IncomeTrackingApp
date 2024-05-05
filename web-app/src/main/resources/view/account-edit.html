@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit account &laquo;[[${account?.title}]]&raquo;</title>
+</head>
+<body>
+<h2>Edit account &laquo;[[${account?.title}]]&raquo;</h2>
+<div data-th-if="${errors}">
+    <h2>Please correct the following errors:</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
+<form data-th-action="@{/accounts/{accountId}/edit(accountId = ${account.id})}" method="post" >
+    <label>
+        Account title<br>
+        <input type="text" name="title" data-th-value="${payload!=null? payload?.title : account.title}">
+    </label><br>
+    <label>
+        Balance <br>
+        <input type="text" name="balance" data-th-value="${payload!=null? payload?.balance : account.balance}">
+    </label>
+    <button type="submit">Save</button>
+</form>
+<button type="button">
+    <a data-th-href="@{/accounts}">Return to Accounts</a>
+</button>
+</body>
+</html>
