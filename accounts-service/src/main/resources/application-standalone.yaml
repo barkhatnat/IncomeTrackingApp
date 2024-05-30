@@ -6,3 +6,11 @@ spring:
     url: jdbc:postgresql://localhost:5432/finsmart
     username: postgres
     password: ilovecookie
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+security:
+  jwt:
+    secret-key: mysecretkey
