@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface UserService {
     Iterable<User> findAllUsers();
 
-    User createUser(String username, String password, String email);
+    User createUser(String username, String password, String email, String role);
 
     Optional<User> findUser(int id);
 

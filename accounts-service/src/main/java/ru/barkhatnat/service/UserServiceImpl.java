@@ -1,6 +1,8 @@
 package ru.barkhatnat.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.repositories.UserRepository;
@@ -12,9 +14,10 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -24,9 +27,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User createUser(String username, String password, String email) {
+    public User createUser(String username, String password, String email, String role) {
         Timestamp createdAt = Timestamp.from(Instant.now());
-        return this.userRepository.save(new User(username, password, email, createdAt));
+        String encodedPassword = passwordEncoder.encode(password);
+        return this.userRepository.save(new User(username, encodedPassword, email, createdAt, role));
     }
 
     @Override
