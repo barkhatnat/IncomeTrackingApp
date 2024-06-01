@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-import ru.barkhatnat.controller.payload.NewUserPayload;
+import ru.barkhatnat.DTO.UserCreateDto;
 import ru.barkhatnat.entity.*;
 import ru.barkhatnat.entity.security.LoginRequest;
 import ru.barkhatnat.entity.security.LoginResponse;
@@ -34,7 +34,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/registration")
-    public ResponseEntity<?> createAccount(@Valid @RequestBody NewUserPayload payload,
+    public ResponseEntity<?> createAccount(@Valid @RequestBody UserCreateDto userCreateDto,
                                            BindingResult bindingResult,
                                            UriComponentsBuilder uriComponentsBuilder) throws BindException {
         if (bindingResult.hasErrors()) {
@@ -44,7 +44,7 @@ public class AuthController {
                 throw new BindException(bindingResult);
             }
         } else {
-            User user = userService.createUser(payload.username(), payload.password(), payload.email(), payload.role());
+            User user = userService.createUser(userCreateDto);
             return ResponseEntity.created(URI.create(uriComponentsBuilder
                             .replacePath("/accounts")
                             .build().toUriString()))

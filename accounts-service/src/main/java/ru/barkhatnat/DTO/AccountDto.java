@@ -1,4 +1,4 @@
-package ru.barkhatnat.controller.payload;
+package ru.barkhatnat.DTO;
 
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 
-public record NewAccountPayload(
+public record AccountDto(
         @Size(min = 1, max = 16, message = "{accounts.create.errors.invalid_title_size}")
         String title,
         @NotNull(message = "{accounts.create.errors.null_balance}")

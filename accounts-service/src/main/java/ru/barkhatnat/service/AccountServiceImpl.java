@@ -3,6 +3,7 @@ package ru.barkhatnat.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.barkhatnat.DTO.AccountDto;
 import ru.barkhatnat.repositories.AccountRepository;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.entity.User;
@@ -27,10 +28,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional
-    public Account createAccount(String title, BigDecimal balance) {
+    public Account createAccount(AccountDto accountDto) {
         User user = userService.findUser(1).orElse(null); //TODO сделать соединение юзера и аккаунтов
-        Timestamp createdAt = Timestamp.from(Instant.now());
-        return this.accountRepository.save(new Account(null, title, balance, user, createdAt));
+        return this.accountRepository.save(new Account(accountDto.title(), accountDto.balance(), user, getCreationDate()));
     }
 
     @Override
@@ -55,5 +55,12 @@ public class AccountServiceImpl implements AccountService {
     @Transactional
     public void deleteAccount(int id) {
         accountRepository.deleteById(id);
+    }
+    private Timestamp getCreationDate(){
+        return Timestamp.from(Instant.now());
+    }
+
+    private String getRole(){
+        return "USER";
     }
 }

@@ -1,10 +1,11 @@
 package ru.barkhatnat.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.barkhatnat.DTO.UserCreateDto;
+import ru.barkhatnat.DTO.UserUpdateDto;
 import ru.barkhatnat.repositories.UserRepository;
 import ru.barkhatnat.entity.User;
 
@@ -27,10 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User createUser(String username, String password, String email, String role) {
-        Timestamp createdAt = Timestamp.from(Instant.now());
-        String encodedPassword = passwordEncoder.encode(password);
-        return this.userRepository.save(new User(username, encodedPassword, email, createdAt, role));
+    public User createUser(UserCreateDto userCreateDto) {
+        String encodedPassword = passwordEncoder.encode(userCreateDto.password());
+        return this.userRepository.save(new User(userCreateDto.username(), encodedPassword, userCreateDto.email(), getCreationDate(), getRole()));
     }
 
     @Override
@@ -41,11 +41,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUser(Integer id, String username, String password, String email) {
-        this.userRepository.findById(id).ifPresentOrElse(account -> {
-                    account.setUsername(username);
-                    account.setPassword(password);
-                    account.setEmail(email);
+    public void updateUser(UserUpdateDto userUpdateDto) {
+        this.userRepository.findById(userUpdateDto.id()).ifPresentOrElse(user -> {
+                    user.setUsername(userUpdateDto.username());
+                    user.setPassword(userUpdateDto.password());
+                    user.setEmail(userUpdateDto.email());
                 }, () -> {
                     throw new NoSuchElementException();
                 }
@@ -56,5 +56,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteUser(int id) {
         userRepository.deleteById(id);
+    }
+
+    private Timestamp getCreationDate(){
+        return Timestamp.from(Instant.now());
+    }
+
+    private String getRole(){
+        return "USER";
     }
 }
