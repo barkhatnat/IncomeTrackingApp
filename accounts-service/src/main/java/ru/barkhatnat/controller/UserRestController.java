@@ -10,22 +10,22 @@ import ru.barkhatnat.DTO.UserResponseDto;
 import ru.barkhatnat.DTO.UserUpdateDto;
 import ru.barkhatnat.entity.User;
 import ru.barkhatnat.service.UserService;
+import ru.barkhatnat.utils.SecurityUtil;
 import ru.barkhatnat.utils.UserMapper;
 
 import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("home/{userId:\\d+}")
+@RequestMapping("home")
 public class UserRestController {
     private final UserService userService;
     private final UserMapper userMapper;
 
     @GetMapping
-    public ResponseEntity<UserResponseDto> getUser(@PathVariable("userId") int userId) {
-        Optional<User> user = userService.findUser(userId);
-        System.out.println(user);
-        System.out.println(userMapper.toUserResponse(user.get()));
+    public ResponseEntity<UserResponseDto> getUser() {
+        Integer id = SecurityUtil.getCurrentUserDetails().getUserId();
+        Optional<User> user = userService.findUser(id);
         return user.map(value -> ResponseEntity.ok(userMapper.toUserResponse(value))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

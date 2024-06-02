@@ -31,7 +31,6 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .securityMatcher("/**")
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/accounts").permitAll()
                         .requestMatchers("/auth/registration").permitAll()
                         .requestMatchers("/auth/login").permitAll()
                         .anyRequest().authenticated()
@@ -45,7 +44,6 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-
     }
 
     @Bean

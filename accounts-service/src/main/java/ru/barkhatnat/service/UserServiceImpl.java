@@ -5,9 +5,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.DTO.UserCreateDto;
+import ru.barkhatnat.DTO.UserResponseDto;
 import ru.barkhatnat.DTO.UserUpdateDto;
+import ru.barkhatnat.entity.Account;
+import ru.barkhatnat.exception.UserAlreadyExistsException;
 import ru.barkhatnat.repositories.UserRepository;
 import ru.barkhatnat.entity.User;
+import ru.barkhatnat.utils.UserMapper;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -19,18 +23,22 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserMapper userMapper;
 
     @Override
-    @Transactional
-    public Iterable<User> findAllUsers() {
-        return this.userRepository.findAll();
+    public Iterable<Account> findAllUserAccounts(User user) {
+        return user.getAccounts();
     }
 
     @Override
     @Transactional
-    public User createUser(UserCreateDto userCreateDto) {
+    public UserResponseDto createUser(UserCreateDto userCreateDto) throws UserAlreadyExistsException {
+        if (userRepository.findByEmail(userCreateDto.email()).isPresent()) {
+            throw new UserAlreadyExistsException("User with username " + userCreateDto.username() + " already exists");
+        }
         String encodedPassword = passwordEncoder.encode(userCreateDto.password());
-        return this.userRepository.save(new User(userCreateDto.username(), encodedPassword, userCreateDto.email(), getCreationDate(), getRole()));
+        User user = userRepository.save(new User(userCreateDto.username(), encodedPassword, userCreateDto.email(), getCreationDate(), getRole()));
+        return userMapper.toUserResponse(user);
     }
 
     @Override
@@ -58,11 +66,12 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
-    private Timestamp getCreationDate(){
+    private Timestamp getCreationDate() {
         return Timestamp.from(Instant.now());
     }
 
-    private String getRole(){
+    private String getRole() {
         return "USER";
     }
+
 }

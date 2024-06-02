@@ -7,6 +7,7 @@ import ru.barkhatnat.DTO.AccountDto;
 import ru.barkhatnat.repositories.AccountRepository;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.entity.User;
+import ru.barkhatnat.utils.SecurityUtil;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -18,31 +19,30 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
-    private final UserServiceImpl userService; //TODO удалить после реализации юзеров
+    private final UserServiceImpl userService;
 
     @Override
     @Transactional
     public Iterable<Account> findAllAccounts() {
-        return accountRepository.findAll();
+        return userService.findAllUserAccounts(getUser());
     }
 
     @Override
     @Transactional
     public Account createAccount(AccountDto accountDto) {
-        User user = userService.findUser(1).orElse(null); //TODO сделать соединение юзера и аккаунтов
-        return this.accountRepository.save(new Account(accountDto.title(), accountDto.balance(), user, getCreationDate()));
+        return accountRepository.save(new Account(accountDto.title(), accountDto.balance(), getUser(), getCreationDate()));
     }
 
     @Override
     @Transactional
     public Optional<Account> findAccount(int id) {
-        return this.accountRepository.findById(id);
+        return accountRepository.findById(id);
     }
 
     @Override
     @Transactional
     public void updateAccount(Integer id, String title, BigDecimal balance) {
-        this.accountRepository.findById(id).ifPresentOrElse(account -> {
+        accountRepository.findById(id).ifPresentOrElse(account -> {
                     account.setTitle(title);
                     account.setBalance(balance);
                 }, () -> {
@@ -56,11 +56,17 @@ public class AccountServiceImpl implements AccountService {
     public void deleteAccount(int id) {
         accountRepository.deleteById(id);
     }
-    private Timestamp getCreationDate(){
+
+    private Timestamp getCreationDate() {
         return Timestamp.from(Instant.now());
     }
 
-    private String getRole(){
-        return "USER";
+    private User getUser() {
+        Integer id = SecurityUtil.getCurrentUserDetails().getUserId();
+        Optional<User> user = userService.findUser(id);
+        if (user.isEmpty()) {
+            throw new NoSuchElementException(); //TODO сделать кастомный эксепшн
+        }
+        return user.get();
     }
 }
