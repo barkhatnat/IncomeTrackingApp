@@ -5,8 +5,6 @@ import org.mapstruct.MappingConstants;
 import ru.barkhatnat.DTO.AccountDto;
 import ru.barkhatnat.entity.Account;
 
-import java.util.List;
-
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AccountMapper {
     AccountDto toAccountDto(Account account);

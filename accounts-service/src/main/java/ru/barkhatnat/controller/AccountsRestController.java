@@ -12,7 +12,6 @@ import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
 import ru.barkhatnat.utils.AccountMapper;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -44,7 +43,7 @@ public class AccountsRestController {
             return ResponseEntity.created(uriComponentsBuilder
                             .replacePath("/accounts/{accountId}")
                             .build(Map.of("accountId", account.getId())))
-                            .body(account);
+                    .body(accountDto);
         }
     }
 }

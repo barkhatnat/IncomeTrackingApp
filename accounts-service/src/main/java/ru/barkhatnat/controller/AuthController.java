@@ -15,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.barkhatnat.DTO.UserCreateDto;
-import ru.barkhatnat.entity.*;
+import ru.barkhatnat.DTO.UserResponseDto;
 import ru.barkhatnat.entity.security.LoginRequest;
 import ru.barkhatnat.entity.security.LoginResponse;
 import ru.barkhatnat.entity.security.UserPrincipal;
+import ru.barkhatnat.exception.UserAlreadyExistsException;
 import ru.barkhatnat.security.JwtIssuer;
 import ru.barkhatnat.service.UserService;
 
@@ -36,7 +37,7 @@ public class AuthController {
     @PostMapping("/registration")
     public ResponseEntity<?> createAccount(@Valid @RequestBody UserCreateDto userCreateDto,
                                            BindingResult bindingResult,
-                                           UriComponentsBuilder uriComponentsBuilder) throws BindException {
+                                           UriComponentsBuilder uriComponentsBuilder) throws BindException, UserAlreadyExistsException {
         if (bindingResult.hasErrors()) {
             if (bindingResult instanceof BindException exception) {
                 throw exception;
@@ -44,11 +45,11 @@ public class AuthController {
                 throw new BindException(bindingResult);
             }
         } else {
-            User user = userService.createUser(userCreateDto);
+            UserResponseDto userResponseDto = userService.createUser(userCreateDto);
             return ResponseEntity.created(URI.create(uriComponentsBuilder
                             .replacePath("/accounts")
                             .build().toUriString()))
-                    .body(user);
+                    .body(userResponseDto);
         }
     }
 
