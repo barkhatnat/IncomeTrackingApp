@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.barkhatnat.DTO.AccountDto;
+import ru.barkhatnat.DTO.AccountResponseDto;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
 import ru.barkhatnat.utils.AccountMapper;
@@ -22,9 +23,9 @@ public class AccountsRestController {
     private final AccountMapper accountMapper;
 
     @GetMapping
-    public ResponseEntity<Iterable<AccountDto>> getAccountsList() {
+    public ResponseEntity<Iterable<AccountResponseDto>> getAccountsList() {
         Iterable<Account> accounts = accountService.findAllAccounts();
-        Iterable<AccountDto> userResponseCollection = accountMapper.toAccountDtoCollection(accounts);
+        Iterable<AccountResponseDto> userResponseCollection = accountMapper.toAccountResponseDtoCollection(accounts);
         return ResponseEntity.ok(userResponseCollection);
     }
 
@@ -40,10 +41,11 @@ public class AccountsRestController {
             }
         } else {
             Account account = accountService.createAccount(accountDto);
+            AccountResponseDto accountResponseDto = accountMapper.toAccountResponseDto(account);
             return ResponseEntity.created(uriComponentsBuilder
                             .replacePath("/accounts/{accountId}")
                             .build(Map.of("accountId", account.getId())))
-                    .body(accountDto);
+                    .body(accountResponseDto);
         }
     }
 }

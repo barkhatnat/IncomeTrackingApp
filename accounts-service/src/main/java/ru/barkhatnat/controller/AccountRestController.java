@@ -10,6 +10,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.barkhatnat.DTO.AccountDto;
+import ru.barkhatnat.DTO.AccountResponseDto;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
 import ru.barkhatnat.utils.AccountMapper;
@@ -27,9 +28,9 @@ public class AccountRestController {
     private final AccountMapper accountMapper;
 
     @GetMapping
-    public ResponseEntity<AccountDto> getAccount(@PathVariable("accountId") int accountId){
+    public ResponseEntity<AccountResponseDto> getAccount(@PathVariable("accountId") int accountId) {
         Optional<Account> account = accountService.findAccount(accountId);
-        return account.map(value -> ResponseEntity.ok(accountMapper.toAccountDto(value))).orElseGet(() -> ResponseEntity.notFound().build());
+        return account.map(value -> ResponseEntity.ok(accountMapper.toAccountResponseDto(value))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PatchMapping
