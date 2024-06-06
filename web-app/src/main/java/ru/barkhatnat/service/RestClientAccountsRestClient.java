@@ -1,15 +1,14 @@
-package ru.barkhatnat.client;
+package ru.barkhatnat.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.MediaType;
-import org.springframework.http.ProblemDetail;
+import org.springframework.http.*;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
+import ru.barkhatnat.client.BadRequestException;
 import ru.barkhatnat.controller.payload.NewAccountPayload;
 import ru.barkhatnat.controller.payload.UpdateAccountPayload;
 import ru.barkhatnat.entity.Account;
-import ru.barkhatnat.service.AccountRestClient;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -31,7 +31,6 @@ public class AccountsController {
     @PostMapping("/create")
     public String saveAccount(@Valid NewAccountPayload payload, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            System.out.println("NOT OK");
             model.addAttribute("payload", payload);
             model.addAttribute("errors", bindingResult.getAllErrors().stream().map(ObjectError::getDefaultMessage).toList());
             return "account-creation";
@@ -39,6 +38,5 @@ public class AccountsController {
             Account account = accountRestClient.createAccount(payload.title(), payload.balance());
             return "redirect:/accounts/%d".formatted(account.id());
         }
-
     }
 }

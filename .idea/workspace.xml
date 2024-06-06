@@ -9,63 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add account validation">
-      <change afterPath="$PROJECT_DIR$/accounts-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountsRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/WebApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/RestClientAccountsRestClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/ClientBeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/service/AccountRestClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web-app/src/test/java/ru/barkhatnat/accountsservice/AccountsServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="36e971a9-d6d7-42f6-9013-2f4a743d9f2a" name="Changes" comment="feat: add user-account connection">
+      <change afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/DTO/AccountResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/AuthInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/GlobalAccessToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/payload/NewUserPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/service/AuthRestClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/service/RestClientAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/log-in.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/user-creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/MySpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/MySpringBootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MySecurityInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/configuration/MyWebInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/MyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/payload/NewAccountPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/payload/UpdateAccountPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/exсeption_handling/AccountGlobalExceptionHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/exсeption_handling/BadRequestControllerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/repositories/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/repositories/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/barkhatnat/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-creation.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-creation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/account-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/account-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/all-users.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/errors/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/errors/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/resources/view/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/user-info.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountsRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/controller/AccountsRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/utils/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts-service/src/main/java/ru/barkhatnat/utils/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/client/RestClientAccountsRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/service/RestClientAccountsRestClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/ClientBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/configuration/MyConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/controller/AccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/web-app/src/main/java/ru/barkhatnat/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,14 +45,29 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="HTML File" />
+        <option value="Record" />
         <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;barkhatnat&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="24933cc5-35ca-4c75-8b19-49d24b367c19" />
+        <option name="url" value="https://github.com/barkhatnat/IncomeTrackingApp.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -106,38 +90,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Mvideo/Documents/JavaProjects/IncomeTrackingApp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "fileTemplates",
-    "spring.configuration.checksum": "a774bc2d9f86ad72cb5c510df382c164",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;updates&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mvideo/Documents/JavaProjects/leetcoding&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d0f955da3291ab80a299ae9e08ec424c&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;redshift&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\accounts-service\src\main\resources" />
@@ -147,6 +133,7 @@
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mvideo\Documents\JavaProjects\IncomeTrackingApp\web-app\src\main\resources\view" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\resources\view" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\resources" />
       <recent name="C:\Users\Mvideo\Documents\JavaProjects\FunnyMoney\src\main\webapp" />
@@ -403,7 +390,33 @@
       <workItem from="1713608864143" duration="566000" />
       <workItem from="1714831697033" duration="9846000" />
       <workItem from="1714897361750" duration="15318000" />
-      <workItem from="1714917471026" duration="321000" />
+      <workItem from="1714917471026" duration="822000" />
+      <workItem from="1714918319123" duration="27000" />
+      <workItem from="1714918371599" duration="640000" />
+      <workItem from="1714922863312" duration="2323000" />
+      <workItem from="1714939336964" duration="693000" />
+      <workItem from="1715107370355" duration="57000" />
+      <workItem from="1715622975430" duration="178000" />
+      <workItem from="1715765118512" duration="1403000" />
+      <workItem from="1715867170750" duration="17000" />
+      <workItem from="1716360195046" duration="934000" />
+      <workItem from="1716395446137" duration="1544000" />
+      <workItem from="1716461439018" duration="5667000" />
+      <workItem from="1716535635657" duration="2606000" />
+      <workItem from="1716548056901" duration="7812000" />
+      <workItem from="1716727042029" duration="9319000" />
+      <workItem from="1716813854008" duration="595000" />
+      <workItem from="1716826706631" duration="7061000" />
+      <workItem from="1717094976061" duration="6822000" />
+      <workItem from="1717151441273" duration="5680000" />
+      <workItem from="1717159157666" duration="4483000" />
+      <workItem from="1717234937561" duration="3143000" />
+      <workItem from="1717255214848" duration="8193000" />
+      <workItem from="1717316410441" duration="9169000" />
+      <workItem from="1717582178549" duration="1531000" />
+      <workItem from="1717611687336" duration="3909000" />
+      <workItem from="1717617080271" duration="7294000" />
+      <workItem from="1717668617570" duration="7205000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add java configuration">
       <option name="closed" value="true" />
@@ -493,7 +506,71 @@
       <option name="project" value="LOCAL" />
       <updated>1713458426646</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat: refactor application to REST API">
+      <option name="closed" value="true" />
+      <created>1714917839031</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714917839031</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: remove test folders">
+      <option name="closed" value="true" />
+      <created>1714917999312</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714917999312</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: add JWT Authentication Filter">
+      <option name="closed" value="true" />
+      <created>1717100370347</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1717100370348</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: add role to user and set authentication">
+      <option name="closed" value="true" />
+      <created>1717152003977</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717152003977</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: add DTO and UserController">
+      <option name="closed" value="true" />
+      <created>1717274756695</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717274756696</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: add email validation">
+      <option name="closed" value="true" />
+      <created>1717332372600</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717332372600</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix: dto">
+      <option name="closed" value="true" />
+      <created>1717332500068</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717332500068</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: add user-account connection">
+      <option name="closed" value="true" />
+      <created>1717332550563</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717332550563</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,6 +596,11 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="updates" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="master" />
                 </option>
               </RecentGroup>
@@ -536,7 +618,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="updates" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -554,7 +648,15 @@
     <MESSAGE value="feat: links to buttons" />
     <MESSAGE value="feat: add NoSuchElementException handling" />
     <MESSAGE value="feat: add account validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add account validation" />
+    <MESSAGE value="feat: refactor application to REST API" />
+    <MESSAGE value="feat: remove test folders" />
+    <MESSAGE value="feat: add JWT Authentication Filter" />
+    <MESSAGE value="feat: add role to user and set authentication" />
+    <MESSAGE value="feat: add DTO and UserController" />
+    <MESSAGE value="feat: add email validation" />
+    <MESSAGE value="fix: dto" />
+    <MESSAGE value="feat: add user-account connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add user-account connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

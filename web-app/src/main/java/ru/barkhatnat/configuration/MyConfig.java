@@ -33,6 +33,7 @@ public class MyConfig implements WebMvcConfigurer {
         templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
+
     @Bean
     @Description("Thymeleaf template engine with Spring integration")
     public SpringTemplateEngine templateEngine() {
@@ -68,6 +69,7 @@ public class MyConfig implements WebMvcConfigurer {
         configurer.setIgnoreUnresolvablePlaceholders(true);
         return configurer;
     }
+
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -75,6 +77,7 @@ public class MyConfig implements WebMvcConfigurer {
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
+
     @Bean
     public LocalValidatorFactoryBean getValidator() {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();

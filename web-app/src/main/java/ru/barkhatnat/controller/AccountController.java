@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("accounts/{accountId:\\d+}")
+@RequestMapping("/accounts/{accountId:\\d+}")
 public class AccountController {
     private final AccountRestClient accountRestClient;
 
