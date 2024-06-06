@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:data-th-each="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create new user</title>
+</head>
+<body>
+<h2>Create new user</h2>
+<div data-th-if="${errors}">
+    <h2>Please correct the following errors:</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
+<form data-th-action="@{/auth/registration}" method="post">
+    <label>
+        Your email <br>
+        <input type="text" name="email" data-th-value="${payload?.email}">
+    </label><br>
+    <label>
+        Password <br>
+        <input type="text" name="password" data-th-value="${payload?.password}">
+    </label>
+    <label>
+        Username <br>
+        <input type="text" name="username" data-th-value="${payload?.username}">
+    </label>
+    <button type="submit">OK</button>
+</form>
+<button type="button">
+    <a href="/auth/login">I want to log in! </a>
+</button>
+</body>
+</html>

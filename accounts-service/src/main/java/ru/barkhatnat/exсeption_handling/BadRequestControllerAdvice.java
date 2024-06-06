@@ -9,6 +9,8 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import ru.barkhatnat.exception.UserAlreadyExistsException;
 
 import java.util.Locale;
 
@@ -17,6 +19,7 @@ import java.util.Locale;
 public class BadRequestControllerAdvice {
     private final MessageSource messageSource;
 
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
     public ResponseEntity<ProblemDetail> handleBindException(BindException e, Locale locale) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,
@@ -28,4 +31,15 @@ public class BadRequestControllerAdvice {
                         .toList());
         return ResponseEntity.badRequest().body(problemDetail);
     }
+
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<ProblemDetail> handleUserAlreadyExistsException(UserAlreadyExistsException e, Locale locale) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                messageSource.getMessage(e.getMessage(), new Object[0], e.getMessage(), locale)
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problemDetail);
+    }
+
 }

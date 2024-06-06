@@ -19,5 +19,12 @@ C:/Users/Mvideo/Documents/JavaProjects/FunnyMoney/src/main/resources/hibernate.c
       <jdbc-url>jdbc:postgresql://localhost:5432/finsmart</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="postgres@localhost [2]" uuid="c9c443cc-6245-4d5d-952e-6541e4e96867">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -46,8 +46,7 @@ public class Account {
     @OneToMany(mappedBy = "account")
     private List<Operation> operations;
 
-    public Account(Integer id, String title, BigDecimal balance, User user, Timestamp createdAt) {
-        this.id = id;
+    public Account(String title, BigDecimal balance, User user, Timestamp createdAt) {
         this.title = title;
         this.balance = balance;
         this.user = user;

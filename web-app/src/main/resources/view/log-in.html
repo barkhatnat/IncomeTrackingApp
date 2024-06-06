@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:data-th-each="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Log in</title>
+</head>
+<body>
+<h2>Log in</h2>
+<div data-th-if="${errors}">
+    <h2>Please correct the following errors:</h2>
+    <ul>
+        <li data-th-each="error: ${errors}" data-th-text="${error}"></li>
+    </ul>
+</div>
+<form data-th-action="@{/auth/login}" method="post">
+    <label>
+        Your email <br>
+        <input type="text" name="email" data-th-value="${payload?.email}">
+    </label><br>
+    <label>
+        Password <br>
+        <input type="text" name="password" data-th-value="${payload?.password}">
+    </label>
+    <button type="submit">OK</button>
+</form>
+<button type="button">
+    <a href="/auth/registration">I want to register! </a>
+</button>
+</body>
+</html>

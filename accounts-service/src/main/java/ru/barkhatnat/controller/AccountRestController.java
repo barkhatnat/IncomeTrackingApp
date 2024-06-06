@@ -9,12 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.barkhatnat.controller.payload.NewAccountPayload;
+import ru.barkhatnat.DTO.AccountDto;
+import ru.barkhatnat.DTO.AccountResponseDto;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.service.AccountService;
+import ru.barkhatnat.utils.AccountMapper;
 
 import java.util.Locale;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,19 +25,16 @@ import java.util.NoSuchElementException;
 public class AccountRestController {
     private final AccountService accountService;
     private final MessageSource messageSource;
-
-    @ModelAttribute("account")
-    public Account account(@PathVariable("accountId") int accountId) {
-        return this.accountService.findAccount(accountId).orElseThrow(() -> new NoSuchElementException("accounts.errors.account.not_found"));
-    }
+    private final AccountMapper accountMapper;
 
     @GetMapping
-    public Account getAccount(@ModelAttribute("account") Account account) {
-        return account;
+    public ResponseEntity<AccountResponseDto> getAccount(@PathVariable("accountId") int accountId) {
+        Optional<Account> account = accountService.findAccount(accountId);
+        return account.map(value -> ResponseEntity.ok(accountMapper.toAccountResponseDto(value))).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PatchMapping
-    public ResponseEntity<?> updateAccount(@ModelAttribute("account") Account account, @Valid @RequestBody NewAccountPayload payload,
+    public ResponseEntity<?> updateAccount(@PathVariable("accountId") int accountId, @Valid @RequestBody AccountDto accountDto,
                                            BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
             if (bindingResult instanceof BindException exception) {
@@ -43,14 +43,14 @@ public class AccountRestController {
                 throw new BindException(bindingResult);
             }
         } else {
-            this.accountService.updateAccount(account.getId(), payload.title(), payload.balance());
+            this.accountService.updateAccount(accountId, accountDto.title(), accountDto.balance());
             return ResponseEntity.noContent().build();
         }
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteAccount(@ModelAttribute("account") Account account) {
-        this.accountService.deleteAccount(account.getId());
+    public ResponseEntity<Void> deleteAccount(@PathVariable("accountId") int accountId) {
+        this.accountService.deleteAccount(accountId);
         return ResponseEntity.noContent().build();
     }
 
