@@ -40,11 +40,10 @@ public class AccountsRestController {
                 throw new BindException(bindingResult);
             }
         } else {
-            Account account = accountService.createAccount(accountDto);
-            AccountResponseDto accountResponseDto = accountMapper.toAccountResponseDto(account);
+            AccountResponseDto accountResponseDto = accountService.createAccount(accountDto);
             return ResponseEntity.created(uriComponentsBuilder
                             .replacePath("/accounts/{accountId}")
-                            .build(Map.of("accountId", account.getId())))
+                            .build(Map.of("accountId", accountResponseDto.id())))
                     .body(accountResponseDto);
         }
     }
