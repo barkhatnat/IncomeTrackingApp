@@ -8,6 +8,7 @@ import ru.barkhatnat.DTO.UserCreateDto;
 import ru.barkhatnat.DTO.UserResponseDto;
 import ru.barkhatnat.DTO.UserUpdateDto;
 import ru.barkhatnat.entity.Account;
+import ru.barkhatnat.entity.Category;
 import ru.barkhatnat.exception.UserAlreadyExistsException;
 import ru.barkhatnat.repositories.UserRepository;
 import ru.barkhatnat.entity.User;
@@ -26,8 +27,21 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
-    public Iterable<Account> findAllUserAccounts(User user) {
-        return user.getAccounts();
+    public Iterable<Account> findAllUserAccounts(Integer userId) {
+        Optional<User> user = findUser(userId);
+        if (user.isEmpty()) {
+            throw new NoSuchElementException(); //TODO сделать кастомный эксепшн
+        }
+        return user.get().getAccounts();
+    }
+
+    @Override
+    public Iterable<Category> findAllUserCategories(Integer userId) {
+        Optional<User> user = findUser(userId);
+        if (user.isEmpty()) {
+            throw new NoSuchElementException(); //TODO сделать кастомный эксепшн
+        }
+        return user.get().getCategories();
     }
 
     @Override

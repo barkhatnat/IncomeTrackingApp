@@ -60,7 +60,7 @@ public class AccountServiceImpl implements AccountService {
                         account.setTitle(title);
                         account.setBalance(balance);
                     } else {
-                        throw new IllegalArgumentException("You are not authorized to modify this account");
+                        throw new IllegalArgumentException("You do not have permission to update this account.");
                     }
                 }, () -> {
                     throw new NoSuchElementException();
@@ -75,7 +75,7 @@ public class AccountServiceImpl implements AccountService {
                     if (account.getUser() != null && account.getUser().getId().equals(SecurityUtil.getCurrentUserDetails().getUserId())) {
                         accountRepository.deleteById(id);
                     } else {
-                        throw new IllegalArgumentException("You are not authorized to modify this account");
+                        throw new IllegalArgumentException("You do not have permission to delete this account.");
                     }
                 }, () -> {
                     throw new NoSuchElementException();
