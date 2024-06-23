@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.DTO.AccountDto;
 import ru.barkhatnat.DTO.AccountResponseDto;
 import ru.barkhatnat.entity.Operation;
+import ru.barkhatnat.entity.User;
 import ru.barkhatnat.repositories.AccountRepository;
 import ru.barkhatnat.entity.Account;
 import ru.barkhatnat.utils.AccountMapper;
-import ru.barkhatnat.utils.CurrentUser;
 import ru.barkhatnat.utils.SecurityUtil;
 
 import java.math.BigDecimal;
@@ -23,7 +23,6 @@ import java.util.Optional;
 public class AccountServiceImpl implements AccountService {
     private final AccountRepository accountRepository;
     private final UserServiceImpl userService;
-    private final CurrentUser currentUser;
     private final AccountMapper accountMapper;
 
     @Override
@@ -41,7 +40,12 @@ public class AccountServiceImpl implements AccountService {
     @Override
     @Transactional
     public AccountResponseDto createAccount(AccountDto accountDto) {
-        Account account = accountRepository.save(new Account(accountDto.title(), accountDto.balance(), currentUser.getUser(), getCreationDate()));
+        Integer id = SecurityUtil.getCurrentUserDetails().getUserId();
+        Optional<User> user = userService.findUser(id);
+        if (user.isEmpty()) {
+            throw new NoSuchElementException(); //TODO сделать кастомный эксепшн
+        }
+        Account account = accountRepository.save(new Account(accountDto.title(), accountDto.balance(), user.get(), getCreationDate()));
         return accountMapper.toAccountResponseDto(account);
     }
 
