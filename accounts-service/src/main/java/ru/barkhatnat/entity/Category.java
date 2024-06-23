@@ -1,5 +1,6 @@
 package ru.barkhatnat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,9 +16,9 @@ import java.util.List;
 @Entity
 @Table(name = "categories")
 public class Category {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
+    @SequenceGenerator(name = "category_seq", sequenceName = "category_seq", allocationSize = 1)
     private Integer id;
 
     @Column
@@ -29,11 +30,17 @@ public class Category {
     @NotNull
     private Boolean categoryType;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
+
     @OneToMany(mappedBy = "category")
     List<Operation> operations;
 
-    public Category(String title, Boolean categoryType) {
+    public Category(String title, Boolean categoryType, User user) {
         this.title = title;
         this.categoryType = categoryType;
+        this.user = user;
     }
 }
