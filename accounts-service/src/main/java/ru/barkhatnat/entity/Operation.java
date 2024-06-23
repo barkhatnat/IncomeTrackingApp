@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="operations")
+@Table(name = "operations")
 public class Operation {
 
     @Id
@@ -31,29 +31,26 @@ public class Operation {
     @NotNull
     private Timestamp datePurchase;
 
-    @Column(name = "operation_type")
-    @NotNull
-    private Boolean operationType;
-
     @Column
     @Size(min = 1, max = 512)
     private String note;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinColumn(name ="category_id")
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
-    @JoinColumn(name ="account_id")
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "account_id")
     private Account account;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-    public Operation(BigDecimal amount, Timestamp datePurchase, Boolean operationType, String note, Timestamp createdAt) {
+    public Operation(BigDecimal amount, Timestamp datePurchase, Category category, Account account, String note, Timestamp createdAt) {
         this.amount = amount;
         this.datePurchase = datePurchase;
-        this.operationType = operationType;
+        this.category = category;
+        this.account = account;
         this.note = note;
         this.createdAt = createdAt;
     }
