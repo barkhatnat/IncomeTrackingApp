@@ -11,7 +11,7 @@ import ru.barkhatnat.service.CategoryService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/category/{categoryId:\\d+}")
+@RequestMapping("/categories/{categoryId:\\d+}")
 public class CategoryRestController {
     private final CategoryService categoryService;
 
