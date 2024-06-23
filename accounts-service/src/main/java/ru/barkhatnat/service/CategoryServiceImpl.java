@@ -3,6 +3,7 @@ package ru.barkhatnat.service;
 import com.google.common.collect.Iterables;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.barkhatnat.DTO.CategoryDto;
 import ru.barkhatnat.DTO.CategoryResponseDto;
 import ru.barkhatnat.entity.Category;
@@ -24,6 +25,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryMapper categoryMapper;
 
     @Override
+    @Transactional
     public Iterable<Category> findAllCategories() {
         Collection<Category> defaultCategories = categoryRepository.findCategoriesByUserEmpty();
         Integer id = SecurityUtil.getCurrentUserDetails().getUserId();
@@ -32,6 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public CategoryResponseDto createCategory(CategoryDto categoryDto) {
         Integer id = SecurityUtil.getCurrentUserDetails().getUserId();
         Optional<User> user = userService.findUser(id);
@@ -43,11 +46,13 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public Optional<Category> findCategory(int id) {
         return categoryRepository.findById(id);
     }
 
     @Override
+    @Transactional
     public void updateCategory(Integer id, String title, Boolean categoryType) {
         categoryRepository.findById(id).ifPresentOrElse(category -> {
             if (category.getUser() != null && category.getUser().getId().equals(SecurityUtil.getCurrentUserDetails().getUserId())) {
@@ -62,6 +67,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public void deleteCategory(int id) {
         categoryRepository.findById(id).ifPresentOrElse(account -> {
                     if (account.getUser() != null && account.getUser().getId().equals(SecurityUtil.getCurrentUserDetails().getUserId())) {
